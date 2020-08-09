@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Assignment1.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Master Page</title>
+    <%--<link rel="stylesheet" type="text/css" href="MasterStyleSheet.css">  --%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header id="header">  
+        <h1>
+            <asp:Image ID="LogoImage" runat="server" Height="30px" ImageUrl="~/Images/AdventureBiking.png"/>&nbsp
+            <asp:Label ID="HeaderLabel" runat="server" Text="Adventure Biking"></asp:Label>
+        </h1>  
+    </header>  
+    <nav id="nav">
+        <asp:Menu ID="AdventureMenu" runat="server" DataSourceID="SiteMapDataSource1"></asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+    </nav>  
+    <aside id="side">  
+        <br />
+        <asp:Label ID="SideBarLabel1" runat="server" Text="Adventure Biking"></asp:Label><br /><br />
+        <asp:Label ID="SideBarLabel2" runat="server" Text="Please select your theme"></asp:Label><br />
+        <asp:DropDownList ID="ThemeList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ThemeList_SelectedIndexChanged">
+            <asp:ListItem Value="Colorful"></asp:ListItem>
+            <asp:ListItem Value="GreyScale"></asp:ListItem>
+        </asp:DropDownList>
+    </aside>  
+    <div id="con">  
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
+        </asp:ContentPlaceHolder>  
+    </div>  
+    <footer id="footer">  
+        <asp:Label ID="FooterLabel" runat="server" Text="Copyright @Nisarg Desai"></asp:Label>
+    </footer> 
+    </form>
+</body>
+</html>
